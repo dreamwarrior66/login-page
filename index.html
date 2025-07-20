@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VaultofCodes - Login</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="brand-header">
+    <img src="logo.png" alt="VaultofCodes Logo" class="brand-logo" />
+    <h1 class="brand-title">VaultofCodes</h1>
+  </header>
+
+  <div class="container">
+    <input type="checkbox" id="flip-toggle" />
+    <div class="flip-card">
+      <div class="card-side card-front">
+        <h2>Welcome Back</h2>
+        <form onsubmit="verifyStudent(event)">
+          <div class="input-group">
+            <i class="fas fa-envelope"></i>
+            <input id="identifier" type="text" placeholder="Enter Email or ID" required />
+          </div>
+          <button type="submit">Verify</button>
+        </form>
+        <div id="toast" class="toast"></div>
+        <p>Don't have an account? <label for="flip-toggle">Sign Up</label></p>
+      </div>
+
+      <div class="card-side card-back">
+        <h2>Create Account</h2>
+        <form>
+          <div class="input-group">
+            <i class="fas fa-user"></i>
+            <input type="text" placeholder="Username" required />
+          </div>
+          <div class="input-group">
+            <i class="fas fa-lock"></i>
+            <input type="password" placeholder="Password" required />
+          </div>
+          <button type="submit">Sign Up</button>
+        </form>
+        <p>Already a user? <label for="flip-toggle">Login</label></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

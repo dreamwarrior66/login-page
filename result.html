@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verification Result</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="brand-header">
+    <img src="logo.png" alt="VaultofCodes Logo" class="brand-logo" />
+    <h1 class="brand-title">VaultofCodes</h1>
+  </header>
+
+  <div class="container">
+    <div id="resultOutput" class="card output-card"></div>
+  </div>
+
+  <script>
+    const data = sessionStorage.getItem("studentData");
+
+    if (data) {
+      const student = JSON.parse(data);
+      const output = `
+        <img src="img.jpg" alt="Photo" />
+        <h3>${student.name}</h3>
+        <p><strong>Email:</strong> ${student.email}</p>
+        <p><strong>Mobile:</strong> ${student.mobile}</p>
+        <p><strong>Domain:</strong> ${student.domain}</p>
+        <p><strong>College:</strong> ${student.college}</p>
+        <p><strong>Start Date:</strong> ${student.start}</p>
+        <p><strong>Duration:</strong> ${student.duration}</p>
+        <h4>Assignment Status</h4>
+        <div class="assignment-status">
+          ${student.assignments.map((done, i) => `<span>A${i + 1}: ${done ? '✅' : '❌'}</span>`).join(' ')}
+        </div>
+        <p><strong>Status:</strong> ${student.status}</p>
+        <a href="${student.certificate}" target="_blank">🎓 View Certificate</a>
+      `;
+      document.getElementById("resultOutput").innerHTML = output;
+    } else {
+      document.getElementById("resultOutput").innerHTML = `<p>No data found. Please go back and verify again.</p>`;
+    }
+  </script>
+</body>
+</html>
